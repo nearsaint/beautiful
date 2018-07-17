@@ -1,0 +1,141 @@
+@charset "UTF-8";
+
+/*
+ * name: 'menu.scss';
+ * author: 'NearSaint';
+ * time: '2018.05';
+ */
+@import "_mixin";
+
+header.nav-component {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 9999;
+  min-width: 1280px;
+
+  menu.menu {
+    @include flex;
+
+    align-items: stretch;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    height: 60px;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    background-color: #333;
+
+    > div.left, div.right {
+      @include flex;
+
+      align-items: stretch;
+      flex-direction: row;
+      flex-wrap: nowrap;
+      justify-content: flex-start;
+
+      > .user {
+        height: 100%;
+
+        > .el-dropdown {
+          display: block;
+          height: 100%;
+
+          > span {
+            height: 100%;
+            display: inline-block;
+            padding: 0 20px 0 20px;
+            line-height: 60px;
+            color: #ddd;
+
+            > i {
+              font-size: 18px;
+              margin-right: 5px;
+            }
+          }
+        }
+      }
+
+      > hr {
+        height: 20px;
+        width: 1px;
+        background-color: #555;
+        margin: 20px 5px;
+        padding: 0;
+        border: none;
+      }
+
+      > .info {
+        > .btn {
+          display: block;
+
+          @include square(40px, 40px);
+
+          color: #E74C3C;
+          font-size: 18px;
+          line-height: 60px;
+          height: 60px;
+          width: 60px;
+          padding: 0;
+          text-align: center;
+
+          &:hover {
+            background: #444;
+          }
+        }
+      }
+
+      > .factoryId {
+        height: 100%;
+
+        @include flex;
+
+        justify-content: flex-start;
+        flex-wrap: nowrap;
+        margin-right: 20px;
+
+        > div.logo {
+          height: 60px;
+          width: 60px;
+          background: #444;
+          border-right: 1px solid #555;
+
+          @include background-image("~images/logo/logo-icon.png", $size: 42%, $position: center);
+        }
+
+        > div.el-select {
+          height: 100%;
+
+          > div.el-input {
+            height: 100%;
+
+            @include background-image("~images/bg_factoryId.png", $size: cover, $position: right);
+
+            .el-input__suffix {
+              display: none;
+            }
+
+            > input {
+              height: 100%;
+              width: auto;
+              margin: 0;
+              padding: 0 20px 0 20px;
+              border: none;
+              outline: none;
+              background: none;
+              color: #ccc;
+            }
+          }
+        }
+      }
+
+      > .nav {
+        .el-submenu__title, .el-menu-item {
+          border: none;
+        }
+      }
+    }
+  }
+}
